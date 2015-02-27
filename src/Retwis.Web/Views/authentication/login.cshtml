@@ -1,0 +1,43 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+@{
+    Layout = "../site-template.cshtml";
+    ViewBag.Title = "Log in";
+}
+
+<h1>Log in</h1>
+
+<form class="form" action="/dologin" method="POST">
+    <div class="form-group">
+        <label>
+            Username
+            <input type="text" class="form-control" name="username" placeholder="Username"/>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Password
+            <input type="password" class="form-control" name="password" placeholder="Password"/>
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Log in</button>
+</form>
+
+<hr/>
+
+<h1>Register</h1>
+
+<form class="form" action="/register" method="POST">
+    <div class="form-group">
+        <label>
+            Username
+            <input type="text" class="form-control" name="username" placeholder="Username" />
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Password
+            <input type="password" class="form-control" name="password" placeholder="Password" />
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Log in</button>
+</form>

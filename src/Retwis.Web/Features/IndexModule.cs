@@ -1,5 +1,7 @@
 ﻿using Nancy;
+using Nancy.Security;
 using Retwis.Data.Persistence;
+using Retwis.Web.Plumbing;
 
 namespace Retwis.Web.Features
 {
@@ -7,10 +9,8 @@ namespace Retwis.Web.Features
     {
         public IndexModule(IRedisContext context)
         {
-            Get["/"] = parameters =>
-            {
-                return View["index"];
-            };
+            this.RequiresAuthentication();
+
 
             Get["/helloworld"] = o =>
             {

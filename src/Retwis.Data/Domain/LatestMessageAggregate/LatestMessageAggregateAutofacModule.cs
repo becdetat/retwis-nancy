@@ -4,17 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
-using Autofac.Core;
-using Retwis.Data.Persistence;
-using StackExchange.Redis;
 
-namespace Retwis.Data
+namespace Retwis.Data.Domain.LatestMessageAggregate
 {
-    public class DataModule : Module
+    public class LatestMessageAggregateAutofacModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<RedisContext>().As<IRedisContext>();
+            builder.RegisterType<LatestMessageRepository>().As<ILatestMessageRepository>();
         }
     }
 }

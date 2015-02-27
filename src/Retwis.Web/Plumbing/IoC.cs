@@ -12,7 +12,7 @@ namespace Retwis.Web.Plumbing
             var assemblies = new[]
             {
                 typeof (IoC).Assembly,
-                typeof (DataModule).Assembly,
+                typeof (DataAutofacModule).Assembly,
             };
 
             builder.RegisterAssemblyModules(assemblies);

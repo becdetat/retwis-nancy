@@ -1,0 +1,19 @@
+{
+  "name": "retwis-nancy",
+  "version": "0.0.0",
+  "homepage": "https://github.com/bendetat/retwis-nancy",
+  "authors": [
+    "Ben Scott <ben@belfryimages.com.au>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}

@@ -1,0 +1,27 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+@{
+    Layout = "../site-template.cshtml";
+    ViewBag.Title = "Timeline";
+}
+
+<h1>Timeline</h1>
+
+<h2>New users</h2>
+<ul>
+    @foreach (var user in Model.LatestRegisteredUsers)
+    {
+        <li><a href="/profile/@user.Username">@user.Username</a></li>
+    }
+</ul>
+
+<h2>Latest 50 message on the public timeline</h2>
+<ul>
+    @foreach (var message in Model.LatestMessages)
+    {
+        <li>
+            <a href="">@("@" + message.Username)</a> - @message.Time.ToString(): 
+            @message.Status
+        </li>
+    }
+</ul>
+

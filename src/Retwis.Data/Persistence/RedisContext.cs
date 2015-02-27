@@ -3,12 +3,7 @@ using StackExchange.Redis;
 
 namespace Retwis.Data.Persistence
 {
-    public interface IRedisContext
-    {
-        void HelloWorld();
-    }
-
-    public class RedisContext : IRedisContext, IDisposable
+    class RedisContext : IRedisContext, IDisposable
     {
         private ConnectionMultiplexer _redis = ConnectionMultiplexer.Connect("localhost");
 
@@ -23,6 +18,11 @@ namespace Retwis.Data.Persistence
             var value = db.StringGet("mykey");
 
             Console.WriteLine("Value: {0}", value);
+        }
+
+        public IDatabase GetDatabase()
+        {
+            return _redis.GetDatabase();
         }
 
         public void Dispose()

@@ -34,6 +34,12 @@
     <Reference Include="Autofac">
       <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Nancy">
+      <HintPath>..\..\packages\Nancy.1.1\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Authentication.Forms">
+      <HintPath>..\..\packages\Nancy.Authentication.Forms.1.1\lib\net40\Nancy.Authentication.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="StackExchange.Redis">
       <HintPath>..\..\packages\StackExchange.Redis.1.0.394\lib\net45\StackExchange.Redis.dll</HintPath>
     </Reference>
@@ -46,13 +52,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModule.cs" />
+    <Compile Include="Domain\LatestMessageAggregate\LatestMessageAggregateAutofacModule.cs" />
+    <Compile Include="Domain\LatestMessageAggregate\LatestMessageRepository.cs" />
+    <Compile Include="Features\Authentication\AuthenticationAutofacModule.cs" />
+    <Compile Include="Features\Authentication\AuthenticationService.cs" />
+    <Compile Include="Features\Authentication\IAuthenticationService.cs" />
+    <Compile Include="Features\Authentication\RetwisUser.cs" />
+    <Compile Include="Features\Authentication\UserDoesNotExistException.cs" />
+    <Compile Include="Features\Authentication\UserMapper.cs" />
+    <Compile Include="Features\Authentication\UsernameAlreadyInUseException.cs" />
+    <Compile Include="DataAutofacModule.cs" />
+    <Compile Include="Features\Home\HomeAutofacModule.cs" />
+    <Compile Include="Features\Home\HomeMessagesService.cs" />
+    <Compile Include="Features\StatusUpdates\StatusUpdater.cs" />
+    <Compile Include="Features\StatusUpdates\StatusUpdatesAutofacModule.cs" />
+    <Compile Include="Features\Timeline\ILatestMessagesService.cs" />
+    <Compile Include="Features\Timeline\ILatestRegisteredUsersService.cs" />
+    <Compile Include="Domain\LatestMessageAggregate\LatestMessage.cs" />
+    <Compile Include="Features\Timeline\LatestMessagesService.cs" />
+    <Compile Include="Features\Timeline\LatestRegisteredUser.cs" />
+    <Compile Include="Features\Timeline\LatestRegisteredUsersService.cs" />
+    <Compile Include="Features\Timeline\TimelineAutofacModule.cs" />
+    <Compile Include="Persistence\IRedisContext.cs" />
+    <Compile Include="Persistence\PersistenceAutofacModule.cs" />
     <Compile Include="Persistence\RedisContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
